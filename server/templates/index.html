@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+</head>
+<body>
+
+<h2>Top student completed the test</h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+    </tr>
+    <tr>
+        <td>
+            <div id="user_1"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="user_2"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="user_3"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="user_4"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="user_5"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="user_6"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="user_7"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="user_8"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="user_9"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="user_10"></div>
+        </td>
+    </tr>
+
+</table>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    (function top(){
+        $.ajax({
+            url: '/ajax/top',
+            success: function(data) {
+                console.log('minhkma');
+                $('#user_1').html(data['user_1']);
+                $('#user_2').html(data['user_2']);
+                $('#user_3').html(data['user_3']);
+                $('#user_4').html(data['user_4']);
+                $('#user_5').html(data['user_5']);
+                $('#user_6').html(data['user_6']);
+                $('#user_7').html(data['user_7']);
+                $('#user_8').html(data['user_8']);
+                $('#user_9').html(data['user_9']);
+                $('#user_10').html(data['user_10']);
+            },
+            failure: function(data) {
+                console.log('Got an error total parameter');
+            }
+        }).then(function() {           // on completion, restart
+            setTimeout(top, 10000);  // function refers to itself
+        });
+    })();
+});
+</script>
+
+</html>

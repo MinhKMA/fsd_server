@@ -1,0 +1,9 @@
+*.pyc
+**/__pycache__/
+**/migrations/
+.idea/*
+.egg-info/
+.tox/
+.vscode
+dockermysql/
+*.egg-info/
