@@ -30,6 +30,11 @@ th {
     </tr>
     <tr>
         <td>
+            <div id="user_0"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
             <div id="user_1"></div>
         </td>
     </tr>
@@ -73,11 +78,6 @@ th {
             <div id="user_9"></div>
         </td>
     </tr>
-    <tr>
-        <td>
-            <div id="user_10"></div>
-        </td>
-    </tr>
 
 </table>
 </body>
@@ -91,6 +91,7 @@ th {
             url: '/ajax/top',
             success: function(data) {
                 console.log('minhkma');
+                $('#user_0').html(data['user_0']);
                 $('#user_1').html(data['user_1']);
                 $('#user_2').html(data['user_2']);
                 $('#user_3').html(data['user_3']);
@@ -100,13 +101,12 @@ th {
                 $('#user_7').html(data['user_7']);
                 $('#user_8').html(data['user_8']);
                 $('#user_9').html(data['user_9']);
-                $('#user_10').html(data['user_10']);
             },
             failure: function(data) {
                 console.log('Got an error total parameter');
             }
         }).then(function() {           // on completion, restart
-            setTimeout(top, 10000);  // function refers to itself
+            setTimeout(top, 2000);  // function refers to itself
         });
     })();
 });
